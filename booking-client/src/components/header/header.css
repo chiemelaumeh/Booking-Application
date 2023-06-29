@@ -1,0 +1,22 @@
+.header {
+  background-color: var(--booking_blue);
+  display: flex;
+  color: white;
+  justify-content: center;
+}
+
+.headerContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 20px 0px 100px 0px;
+}
+.headerList{
+  display: flex;
+  gap: 50px;
+}
+
+.headerListItem{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

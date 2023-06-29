@@ -1,6 +1,6 @@
 .navbar{
   height: 50px;
-  background-color:#003580 ;
+  background-color:var(--booking_blue) ;
   display: flex;
   justify-content: center;
 
@@ -16,4 +16,14 @@
 
 .logo{
   font-weight: 500;
+}
+.navButton{
+ margin-left: 20px; 
+ border: none;
+ padding: 5px 10px;
+ cursor: pointer;
+ color: var(--booking_blue)
+ ;
+
+
 }

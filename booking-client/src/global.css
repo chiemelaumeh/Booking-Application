@@ -1,3 +1,11 @@
+/* :root {
+  box-sizing: border-box;
+} */
+
+* {
+  --booking_blue: #003580;
+
+}
 html,
 body {
   padding: 0;
