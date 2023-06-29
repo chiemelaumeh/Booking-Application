@@ -51,8 +51,7 @@ const Header = () => {
             <span className="headerSearchText">Date to Date</span>
           </div>
           <div className="headerSearchItem">
-            <FaBed className="headerIcon" />
-            <span className="headerSearchText">2 adults 2 children 1 room</span>
+             <button className="headerBtn">Search</button>
           </div>
         </div>
       </div>
