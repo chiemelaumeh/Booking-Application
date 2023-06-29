@@ -1,11 +1,23 @@
 import "./header.css";
+import { useState } from "react";
 import { FaBed } from "react-icons/fa";
 import { BiSolidPlane } from "react-icons/bi";
 import { AiFillCar } from "react-icons/ai";
 import { FaTaxi } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
+import { DateRange, DateRangePicker } from "react-date-range";
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 const Header = () => {
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: "selection",
+    },
+  ]);
+
   return (
     <div className="header">
       <div className="headerContainer">
@@ -49,9 +61,16 @@ const Header = () => {
           <div className="headerSearchItem">
             <SlCalender className="headerIcon" />
             <span className="headerSearchText">Date to Date</span>
+            <DateRange
+              editableDateInputs={true}
+              onChange={(item) => setDate([item.selection])}
+              moveRangeOnFirstSelection={false}
+              ranges={date}
+              className="date"
+            />
           </div>
           <div className="headerSearchItem">
-             <button className="headerBtn">Search</button>
+            <button className="headerBtn">Search</button>
           </div>
         </div>
       </div>

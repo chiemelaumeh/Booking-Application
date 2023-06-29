@@ -78,3 +78,7 @@ color: lightgray;
 .headerSearchText{
   color: lightgrey;
 }
+.date{
+  position: absolute;
+  top: 50px;
+}
