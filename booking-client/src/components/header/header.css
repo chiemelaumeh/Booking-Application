@@ -3,20 +3,65 @@
   display: flex;
   color: white;
   justify-content: center;
+  position: relative
+  
 }
 
 .headerContainer {
   width: 100%;
   max-width: 1440px;
   margin: 20px 0px 100px 0px;
+  
 }
 .headerList{
   display: flex;
   gap: 50px;
+ margin-bottom: 50px;
 }
 
 .headerListItem{
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.headerListItem.active{
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.headerDesc{
+margin: 20px 0;
+}
+
+.headerBtn{
+  background-color: var(--booking_light_blue);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+.headerSearch{
+  height:30px;
+  background-color: white;
+  border: 3px solid #febb02;
+  display: flex;
+  color: black;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -25px;
+  width: 100%;
+  max-width: 1440px;
+
+}
+
+.headerIcon{
+color: lightgray;
 }
