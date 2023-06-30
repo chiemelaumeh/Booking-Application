@@ -10,9 +10,9 @@ const Home = () => {
       <Header />
       <div className="homeContainer">
         <Featured />
-        <div className="homeTitle">
+        <h1 className="homeTitle">
           Browse by property type
-        </div>
+        </h1>
       </div>
     </div>
   );
