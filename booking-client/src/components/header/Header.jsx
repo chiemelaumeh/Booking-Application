@@ -50,7 +50,7 @@ const Header = ({ type }) => {
           </div>
           <div className="headerListItem">
             <AiFillCar />
-            <span>Car rentas</span>
+            <span>Car rentals</span>
           </div>
           <div className="headerListItem">
             <FaBed />
