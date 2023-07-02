@@ -10,10 +10,12 @@ import { DateRange, DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ type }) => {
   const [openDate, setOpenDate] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
+  const [destination, setDestination] = useState("");
   const [options, setOptions] = useState({
     adult: 1,
     children: 0,
@@ -26,6 +28,7 @@ const Header = ({ type }) => {
       key: "selection",
     },
   ]);
+  const navigate  = useNavigate()
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -35,9 +38,10 @@ const Header = ({ type }) => {
       };
     });
   };
-
+ 
   const handleSearch = () => {
-    
+   navigate("/hotels", { state: { destination, date, options } })
+
   }
 
   return (
@@ -80,6 +84,7 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going"
                   className="headerSearchInput"
+                  onChange={e=>setDestination(e.target.value)}
                 />
               </div>
               <div className="headerSearchItem">
