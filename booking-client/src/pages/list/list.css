@@ -2,21 +2,24 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  border: 1px solid red;
+
 }
 .listWrapper {
   width: 100%;
   max-width: 1024px;
   display: flex;
   gap: 20px;
-  border: 1px solid teal;
+
 }
 
 .listSearch{
+
   flex: 1;
-  background-color: yellow;
+  background-color: rgb(232, 189, 21);
   padding: 10px;
   border-radius: 10px;
+  position: sticky;
+  top: 10px;
 }
 .listResult{
   flex: 3
