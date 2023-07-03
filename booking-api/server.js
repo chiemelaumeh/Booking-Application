@@ -5,14 +5,19 @@ const app = express();
 dotenv.config();
 
 
-import userRoute from "./routes/userRoutes.js "
+import userRoutes from "./routes/userRoutes.js "
 import auth from "./routes/auth.js"
+import hotelRoutes from "./routes/hotelRoutes.js"
+import roomRoutes from "./routes/roomRoutes.js"
 const PORT = 8000;
 import { connectDatabase } from "./db.js";
 
 
-app.use("/", auth)
-app.use("/users", userRoute)
+app.use("/api/auth", auth)
+app.use("/api/users", userRoutes)
+app.use("/api/hotels", hotelRoutes)
+app.use("/api/rooms", roomRoutes)
+
 
 
 
