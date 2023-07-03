@@ -1,29 +1,27 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose"
-const app = express();
-dotenv.config();
-
-
 import userRoutes from "./routes/userRoutes.js "
 import auth from "./routes/auth.js"
 import hotelRoutes from "./routes/hotelRoutes.js"
 import roomRoutes from "./routes/roomRoutes.js"
+import cookieParser from "cookie-parser";
+const app = express();
+dotenv.config();
+
+
+
 const PORT = 8000;
 import { connectDatabase } from "./db.js";
 
 
-
+app.use(cookieParser())
 app.use(express.json())
+
 app.use("/api/auth", auth)
 app.use("/api/users", userRoutes)
 app.use("/api/hotels", hotelRoutes)
 app.use("/api/rooms", roomRoutes)
-
-
-
-
-
 
 
 app.use((err, req, res, next)=> {

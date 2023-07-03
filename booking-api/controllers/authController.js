@@ -1,5 +1,6 @@
 import User from "../models/UserModel.js"
 import bcrypt from "bcryptjs"
+import jwt from "jsonwebtoken"
 import { errorHandler } from "../utils/error.js"
 export const register = async(req, res, next) => {
   try {
@@ -26,8 +27,13 @@ export const login = async(req, res, next) => {
    
    const isPasswordCorrect = await bcrypt.compareSync(req.body.password, user.password)
    if(!isPasswordCorrect) return next(errorHandler(400, "Invalid password"))
-   
-    res.status(201).json(user)
+    
+   const token = jwt.sign({ id:user._id, isAdmin: user.isAdmin }, process.env.SECRET_KEY)
+
+   const { password, isAdmin, ...otherDetails} = user._doc
+    res.cookie("access_token", token, {
+    httpOnly: true
+    }).status(201).json({...otherDetails})
   } catch (err) {
     next(err)
   }
