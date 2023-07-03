@@ -50,12 +50,12 @@ router.get("/:id", async (req, res) => {
 
 router.get("", async (req, res) => {
   try {
-    const hotel = await Hotel.find(
+    const hotels = await Hotel.find(
     );
    
-    res.status(201).json(hotel);
-  } catch (error) {
-    res.status(500).json(error.message);
+    res.status(201).json(hotels);
+  } catch (err) {
+    next(err);
   }
 });
 
