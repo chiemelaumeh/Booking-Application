@@ -6,12 +6,13 @@ dotenv.config();
 
 
 import userRoute from "./routes/userRoutes.js "
+import auth from "./routes/auth.js"
 const PORT = 8000;
 import { connectDatabase } from "./db.js";
 
 
-
-app.use("/", userRoute)
+app.use("/", auth)
+app.use("/users", userRoute)
 
 
 
