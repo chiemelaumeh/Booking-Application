@@ -1,14 +1,49 @@
-import express from "express"
-import dotenv from "dotenv"
-const app = express()
-dotenv.config()
+import express from "express";
+import dotenv from "dotenv";
+import mongoose from "mongoose"
+const app = express();
+dotenv.config();
 
-const PORT = 8000
+const PORT = 8000;
+import { connectDatabase } from "./booking-api/db.js";
 
 
 
 
 
-app.listen(`${PORT}`, ()=> {
-  console.log(`Listening on port ${PORT}`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mongoose.connection.on("disconnected", ()=> {
+  console.log("Mongo disconnected")
 })
+mongoose.connection.on("connected", ()=> {
+  console.log("Mongo connected")
+})
+
+app.listen(`${PORT}`, () => {
+  connectDatabase();
+  console.log(`Listening on port ${PORT}`);
+});
