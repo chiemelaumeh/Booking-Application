@@ -4,16 +4,14 @@ import mongoose from "mongoose"
 const app = express();
 dotenv.config();
 
+
+import userRoute from "./routes/userRoutes.js "
 const PORT = 8000;
 import { connectDatabase } from "./db.js";
 
 
 
-app.get("/", (req, res)=> {
-  res.send("My request")
-})
-
-
+app.use("/", userRoute)
 
 
 
@@ -40,9 +38,6 @@ app.get("/", (req, res)=> {
 
 mongoose.connection.on("disconnected", ()=> {
   console.log("Mongo disconnected")
-})
-mongoose.connection.on("connected", ()=> {
-  console.log("Mongo connected")
 })
 
 app.listen(`${PORT}`, () => {
