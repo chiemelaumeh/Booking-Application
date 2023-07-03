@@ -1,9 +1,18 @@
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import { FaBed } from "react-icons/fa";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { GrClose } from "react-icons/gr";
+
 import "./hotel.css";
+import MailList from "../../components/mailList/MailList";
+import Footer from "../../components/footer/Footer";
+import { useState } from "react";
 
 const Hotel = () => {
+  const [slideNumber, setSlideNumber] = useState(0)
+  const [open, setOpen] = useState(false)
   const photos = [
     {
       src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707778.jpg?k=56ba0babbcbbfeb3d3e911728831dcbc390ed2cb16c51d88159f82bf751d04c6&o=&hp=1",
@@ -25,12 +34,39 @@ const Hotel = () => {
     },
   ];
 
+  const handleOpen = (i) => {
+    setSlideNumber(i)
+    setOpen(true)
+
+  }
+
+  const handleMove = (direction) => {
+    let newSlideNumber;
+    if(direction === "l") {
+      newSlideNumber = slideNumber === 0 ? 5 : slideNumber - 1
+    } else {
+      newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1
+    }
+    setSlideNumber(newSlideNumber)
+  }
   return (
     <div>
       <Navbar />
       <Header type="list" />
       <div className="hotelContainer">
+        {
+          open &&(
+        <div className="slider">
+          <GrClose className="close" onClick={()=>setOpen(false)}/>
+          <AiOutlineArrowLeft className="arrow" onClick={()=>handleMove("l")} />
+          <div className="sliderWrapper">
+            <img src={photos[slideNumber].src} alt="" className="sliderImg" />
+          </div>
+          <AiOutlineArrowRight className="arrow" onClick={()=>handleMove("")} />
+        </div>
+        )}
         <div className="hotelWrapper">
+          <button className="bookNow">Reserve or book now</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
           <div className="hotelAddress">
             <FaBed />
@@ -43,9 +79,9 @@ const Hotel = () => {
             Book a stay overr $114 at this property and get a free airport taxi
           </span>
           <div className="hotelImages">
-            {photos.map((photo) => (
+            {photos.map((photo,i) => (
               <div className="hotelImgWrapper">
-                <img src={photo.src} alt="" className="hotelImg" />
+                <img  onClick={() => handleOpen(i)} src={photo.src} alt="" className="hotelImg" />
               </div>
             ))}
           </div>
@@ -79,6 +115,8 @@ const Hotel = () => {
             </div>
           </div>
         </div>
+        <MailList />
+        <Footer />
       </div>
     </div>
   );
