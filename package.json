@@ -1,0 +1,23 @@
+{
+  "name": "booking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiemelaumeh/Booking-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chiemelaumeh/Booking-Application/issues"
+  },
+  "homepage": "https://github.com/chiemelaumeh/Booking-Application#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
