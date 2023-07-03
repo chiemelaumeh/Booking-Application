@@ -4,6 +4,8 @@ import { FaBed } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
+import { ImLocation2 } from "react-icons/im";
+
 
 import "./hotel.css";
 import MailList from "../../components/mailList/MailList";
@@ -69,7 +71,7 @@ const Hotel = () => {
           <button className="bookNow">Reserve or book now</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
           <div className="hotelAddress">
-            <FaBed />
+            <ImLocation2 />
             <span>Elton St 125 New York</span>
           </div>
           <span className="hotelDistance">
