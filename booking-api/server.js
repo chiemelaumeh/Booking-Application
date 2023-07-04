@@ -15,8 +15,8 @@ const PORT = 8000;
 import { connectDatabase } from "./db.js";
 
 
-app.use(cookieParser())
 app.use(express.json())
+app.use(cookieParser())
 
 app.use("/api/auth", auth)
 app.use("/api/users", userRoutes)
