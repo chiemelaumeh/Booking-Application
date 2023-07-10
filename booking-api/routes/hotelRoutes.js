@@ -8,7 +8,7 @@ router.post("/", verifyAdmin, createHotel);
 router.put("/:id", verifyAdmin, updateHotel);
 router.delete("/:id", verifyAdmin, deleteHotel);
 router.get("/:id", getOneHotel);
-router.get("", getAllHotels);
+router.get("/", getAllHotels);
 
 
 

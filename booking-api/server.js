@@ -24,6 +24,7 @@ app.use("/api/hotels", hotelRoutes)
 app.use("/api/rooms", roomRoutes)
 
 
+
 app.use((err, req, res, next)=> {
   const errorStatus = err.status || 500
   const errorMessage = err.message || "Something went wrong"
