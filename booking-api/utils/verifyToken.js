@@ -16,19 +16,30 @@ export const verifyToken = (req, res, next) => {
  jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
     if (err) return next(errorHandler(403, "Token is not valid"));
     req.user = user;
-    // console.log(user)
+   
 
     next();
   });
 };
 
 export const verifyUser = (req, res, next) => {
-  verifyToken(req, res,() => {
+  verifyToken(req, res, next, () => {
 
     if (req.user.id === req.params.id || req.user.isAdmin) {
       next();
     } else {
       return next(errorHandler(403, "You are not authorized"));
+    }
+  });
+};
+
+export const verifyAdmin = (req, res, next) => {
+  verifyToken(req, res, next, () => {
+    if (req.user.isAdmin) {
+  
+      next();
+    } else {
+      return next(errorHandler(403, "You are not an Admin"));
     }
   });
 };
