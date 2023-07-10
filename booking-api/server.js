@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose"
 import userRoutes from "./routes/userRoutes.js "
-import auth from "./routes/auth.js"
+import authRoute from "./routes/authRoute.js"
 import hotelRoutes from "./routes/hotelRoutes.js"
 import roomRoutes from "./routes/roomRoutes.js"
 import cookieParser from "cookie-parser";
@@ -18,7 +18,7 @@ import { connectDatabase } from "./db.js";
 app.use(express.json())
 app.use(cookieParser())
 
-app.use("/api/auth", auth)
+app.use("/api/auth", authRoute)
 app.use("/api/users", userRoutes)
 app.use("/api/hotels", hotelRoutes)
 app.use("/api/rooms", roomRoutes)
