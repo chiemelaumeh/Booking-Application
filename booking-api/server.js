@@ -1,4 +1,4 @@
-import express from "express";
+ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose"
 import userRoutes from "./routes/userRoutes.js "
@@ -6,6 +6,7 @@ import authRoute from "./routes/authRoute.js"
 import hotelRoutes from "./routes/hotelRoutes.js"
 import roomRoutes from "./routes/roomRoutes.js"
 import cookieParser from "cookie-parser";
+import cors from "cors"
 const app = express();
 dotenv.config();
 
@@ -17,6 +18,7 @@ import { connectDatabase } from "./db.js";
 
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors())
 
 app.use("/api/auth", authRoute)
 app.use("/api/users", userRoutes)
