@@ -3,9 +3,9 @@ import { createRoom, deleteRoom, getAllRooms, getOneRoom, updateRoom } from "../
 import { verifyAdmin } from "../utils/verifyToken.js"
 const router = express.Router()
 
-router.post("/:hotelid", verifyAdmin, createRoom) 
+router.post("/:hotelId", verifyAdmin, createRoom) 
 router.put("/:id", verifyAdmin, updateRoom)
-router.delete("/:id/:hotelid", verifyAdmin, deleteRoom)
+router.delete("/:id/:hotelId", verifyAdmin, deleteRoom)
 router.get("/:id", getOneRoom)
 router.get("/", getAllRooms)
 
