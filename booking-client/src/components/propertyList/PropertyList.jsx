@@ -3,7 +3,6 @@ import useFetch from "../hooks/useFetch";
 
 const PropertyList = () => {
   const { data, loading, error } = useFetch("/hotels/countByType");
-   console.log(data)
   const images = [
     "https://cf.bstatic.com/xdata/images/hotel/square600/466470357.webp?k=4dec329fed5468a80db9024f1f926a804f659f7621908af5af259fb0b4bc82fe&o=",
     "https://cf.bstatic.com/xdata/images/hotel/square600/466470357.webp?k=4dec329fed5468a80db9024f1f926a804f659f7621908af5af259fb0b4bc82fe&o=",
