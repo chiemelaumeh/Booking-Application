@@ -14,7 +14,6 @@ const FeaturedProperties = () => {
         <>
         {
           data && 
-          
           data.map(item => (
 
           <div className="fpItem" key={item._id}>
