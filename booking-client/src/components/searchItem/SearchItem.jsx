@@ -1,10 +1,11 @@
 import "./SearchItem.css";
+import { Link } from "react-router-dom";
 
 const SearchItem = ({ item }) => {
   return (
     <div className="searchItem">
       <img
-        src="https://cf.bstatic.com/xdata/images/hotel/square600/280947638.webp?k=9e8f72c1ff91b261cdda3dbe4e1a70bef455dd72c00119ff379c671a65ad565d&o="
+        src={item.photos[0]}
         alt=""
         className="siImg"
       />

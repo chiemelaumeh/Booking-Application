@@ -16,7 +16,6 @@ const List = () => {
   const [openDate, setOpenDate] = useState(false);
 
   const { data, loading, error } = useFetch(`/hotels?city=${destination}`);
-
   return (
     <div>
       <Navbar />
