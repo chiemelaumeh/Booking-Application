@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { DateRange, DateRangePicker } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
+import useFetch from "../../components/hooks/useFetch";
 
 const List = () => {
   const location = useLocation();
@@ -14,7 +15,8 @@ const List = () => {
   const [options, setOptions] = useState(location.state.options);
   const [openDate, setOpenDate] = useState(false);
 
-  // console.log(destination, date, options)
+  const { data, loading, error } = useFetch(`/hotels?city=${destination}`);
+
   return (
     <div>
       <Navbar />
@@ -92,14 +94,16 @@ const List = () => {
             <button>Search</button>
           </div>
           <div className="listResult">
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
+            {loading ? (
+              "Loading"
+            ) : (
+              <>
+                {data &&
+                 data.map((item) => (
+                  <SearchItem item={item} key={item._id} />
+                ))}
+              </>
+            )}
           </div>
         </div>
       </div>
