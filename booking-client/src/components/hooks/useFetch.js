@@ -12,7 +12,6 @@ const useFetch = (url) => {
       try {
         const response = await axios.get(url);
         setData(response.data);
-        console.log("Fsv")
       } catch (err) {
         setError(err);
       }
