@@ -12,7 +12,7 @@ const useFetch = (url) => {
       try {
         const response = await axios.get(url);
         setData(response.data);
-      } catch (error) {
+      } catch (err) {
         setError(err);
       }
       setLoading(false);
@@ -20,18 +20,18 @@ const useFetch = (url) => {
     fetchData();
   }, [url]);
 
-  // const refetch = async() => {
-  //   setLoading(true);
-  //   try {
-  //     const response = await axios.get(url);
-  //     setData(response.data);
-  //   } catch (error) {
-  //     setError(err);
-  //   }
-  // };
-  // setLoading(false);
+  const refetch = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(url);
+      setData(response.data);
+    } catch (err) {
+      setError(err);
+    }
+    setLoading(false);
+  };
 
 
-  return {data, loading, error}
+  return {data, loading, error, refetch}
 };
 export default useFetch;
