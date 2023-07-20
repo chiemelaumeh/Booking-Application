@@ -12,8 +12,13 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Header = ({ type }) => {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(SearchContext);
+  const { user } = useContext(AuthContext);
   const [openDates, setOpenDates] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
   const [destination, setDestination] = useState("");
@@ -29,7 +34,6 @@ const Header = ({ type }) => {
       key: "selection",
     },
   ]);
-  const navigate  = useNavigate()
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {
@@ -40,17 +44,18 @@ const Header = ({ type }) => {
     });
   };
 
-  const {dispatch} = useContext(SearchContext)
- 
   const handleSearch = () => {
-    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options}})
-   navigate("/hotels", { state: { destination, dates, options } })
-
-  }
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+    navigate("/hotels", { state: { destination, dates, options } });
+  };
 
   return (
     <div className="header">
-      <div className={type === "list" ? "headerContainer listMode" : "headerContainer" }>
+      <div
+        className={
+          type === "list" ? "headerContainer listMode" : "headerContainer"
+        }
+      >
         <div className="headerList">
           <div className="headerListItem active">
             <FaBed />
@@ -80,7 +85,11 @@ const Header = ({ type }) => {
             <p className="headerDesc">
               Take your longest vacation yet. Fly away to your dream vacation
             </p>
-            <button className="headerBtn">Sign in / Register</button>
+            {!user && (
+              <Link to={"/login"}>
+                <button className="headerBtn">Sign in / Register</button>
+              </Link>
+            )}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FaBed className="headerIcon" />
@@ -88,7 +97,7 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going"
                   className="headerSearchInput"
-                  onChange={e=>setDestination(e.target.value)}
+                  onChange={(e) => setDestination(e.target.value)}
                 />
               </div>
               <div className="headerSearchItem">
@@ -97,7 +106,7 @@ const Header = ({ type }) => {
                   onClick={() => setOpenDates(!openDates)}
                   className="headerSearchText"
                 >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
-                  dates[0].endDate,  
+                  dates[0].endDate,
                   "MM/dd/yyyy"
                 )} `}</span>
                 {openDates && (
@@ -135,9 +144,7 @@ const Header = ({ type }) => {
                         <button
                           className="optionCounterButton"
                           onClick={() => handleOption("adult", "i")}
-                        >
-                          
-                        </button>
+                        ></button>
                       </div>
                     </div>
                     <div className="optionItem">
@@ -186,7 +193,9 @@ const Header = ({ type }) => {
                 )}
               </div>
               <div className="headerSearchItem">
-                <button className="headerBtn" onClick={handleSearch}>Search</button>
+                <button className="headerBtn" onClick={handleSearch}>
+                  Search
+                </button>
               </div>
             </div>
           </>

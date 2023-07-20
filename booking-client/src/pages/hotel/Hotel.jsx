@@ -47,8 +47,6 @@ const Hotel = () => {
   const {dates, destination, options  } = useContext(SearchContext)
   const days = dayDifference(dates[0].startDate, dates[0].endDate)
 
-
-  // console.log(dates, destination, options)
   return (
     <div>
       <Navbar />
