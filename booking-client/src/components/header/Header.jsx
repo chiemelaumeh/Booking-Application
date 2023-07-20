@@ -1,5 +1,6 @@
 import "./header.css";
-import { useState } from "react";
+import SearchContext from "../../context/SearchContext";
+import { useContext, useState } from "react";
 import { FaBed } from "react-icons/fa";
 import { BiSolidPlane } from "react-icons/bi";
 import { AiFillCar } from "react-icons/ai";
@@ -13,7 +14,7 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 
 const Header = ({ type }) => {
-  const [openDate, setOpenDate] = useState(false);
+  const [openDates, setOpenDates] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
   const [destination, setDestination] = useState("");
   const [options, setOptions] = useState({
@@ -21,7 +22,7 @@ const Header = ({ type }) => {
     children: 0,
     room: 1,
   });
-  const [date, setDate] = useState([
+  const [dates, setDates] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -38,9 +39,12 @@ const Header = ({ type }) => {
       };
     });
   };
+
+  const {dispatch} = useContext(SearchContext)
  
   const handleSearch = () => {
-   navigate("/hotels", { state: { destination, date, options } })
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options}})
+   navigate("/hotels", { state: { destination, dates, options } })
 
   }
 
@@ -90,19 +94,19 @@ const Header = ({ type }) => {
               <div className="headerSearchItem">
                 <SlCalender className="headerIcon" />
                 <span
-                  onClick={() => setOpenDate(!openDate)}
+                  onClick={() => setOpenDates(!openDates)}
                   className="headerSearchText"
-                >{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-                  date[0].endDate,
+                >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                  dates[0].endDate,
                   "MM/dd/yyyy"
                 )} `}</span>
-                {openDate && (
+                {openDates && (
                   <DateRange
                     minDate={new Date()}
                     editableDateInputs={true}
-                    onChange={(item) => setDate([item.selection])}
+                    onChange={(item) => setDates([item.selection])}
                     moveRangeOnFirstSelection={false}
-                    ranges={date}
+                    ranges={dates}
                     className="date"
                   />
                 )}

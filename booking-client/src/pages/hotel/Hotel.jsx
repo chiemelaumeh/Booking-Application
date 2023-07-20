@@ -9,9 +9,10 @@ import { ImLocation2 } from "react-icons/im";
 import "./hotel.css";
 import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import useFetch from "../../components/hooks/useFetch";
+import SearchContext from "../../context/SearchContext";
 
 const Hotel = () => {
   const params = useParams();
@@ -35,6 +36,9 @@ const Hotel = () => {
     }
     setSlideNumber(newSlideNumber);
   };
+
+  const {dates} = useContext(SearchContext)
+  console.log(dates)
   return (
     <div>
       <Navbar />

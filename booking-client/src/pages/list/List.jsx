@@ -11,9 +11,9 @@ import useFetch from "../../components/hooks/useFetch";
 const List = () => {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
-  const [date, setDate] = useState(location.state.date);
+  const [dates, setDates] = useState(location.state.dates);
   const [options, setOptions] = useState(location.state.options);
-  const [openDate, setOpenDate] = useState(false);
+  const [openDates, setOpenDate] = useState(false);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
   const { data, loading, error, refetch } = useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 9999}`);
@@ -37,17 +37,17 @@ const List = () => {
             </div>
             <div className="listItem">
               <label>Check-in date</label>
-              <span onClick={() => setOpenDate(!openDate)}>
-                {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-                  date[0].endDate,
+              <span onClick={() => setOpenDate(!openDates)}>
+                {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                  dates[0].endDate,
                   "MM/dd/yyyy"
                 )} `}
               </span>
-              {openDate && (
+              {openDates && (
                 <DateRange
-                  onChange={(item) => setDate([item.selection])}
+                  onChange={(item) => setDates ([item.selection])}
                   minDate={new Date()}
-                  ranges={date}
+                  ranges={dates}
                 />
               )}
             </div>
