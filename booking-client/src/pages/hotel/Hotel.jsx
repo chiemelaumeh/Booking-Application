@@ -37,8 +37,8 @@ const Hotel = () => {
     setSlideNumber(newSlideNumber);
   };
 
-  const {dates} = useContext(SearchContext)
-  console.log(dates)
+  const {dates, destination, options  } = useContext(SearchContext)
+  console.log(dates, destination, options)
   return (
     <div>
       <Navbar />
