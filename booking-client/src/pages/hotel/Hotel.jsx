@@ -1,6 +1,6 @@
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
-import Reserve from "../../reserve/Reserve";
+import Reserve from "../../components/reserve/Reserve";
 import { FaBed } from "react-icons/fa";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
@@ -18,15 +18,14 @@ import AuthContext from "../../context/AuthContext";
 
 const Hotel = () => {
   const params = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const id = params.id;
-  const {dates, destination, options  } = useContext(SearchContext)
+  const { dates, destination, options } = useContext(SearchContext);
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const { data, loading, error } = useFetch(`/hotels/find/${id}`);
-
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -41,29 +40,24 @@ const Hotel = () => {
       newSlideNumber = slideNumber === 5 ? 0 : slideNumber + 1;
     }
     setSlideNumber(newSlideNumber);
-  }; 
+  };
 
-
-  
   const handleClick = () => {
-    if(user){
-      setOpenModal(true)
+    if (user) {
+      setOpenModal(true);
     } else {
-      navigate("/login")
+      navigate("/login");
     }
+  };
 
-  }
-console.log(user.username)
 
   function dayDifference(date1, date2) {
-    const milliSecondsPerDay = 1000 * 60 * 60 * 24
-    const timeDiff = Math.abs(date2.getTime() - date1.getTime())
-    const diffDays = Math.ceil(timeDiff/milliSecondsPerDay)
-    return diffDays
-
+    const milliSecondsPerDay = 1000 * 60 * 60 * 24;
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    const diffDays = Math.ceil(timeDiff / milliSecondsPerDay);
+    return diffDays;
   }
-  const days = dayDifference(dates[0].startDate, dates[0].endDate)
-
+  const days = dayDifference(dates[0].startDate, dates[0].endDate);
 
   return (
     <div>
@@ -94,18 +88,20 @@ console.log(user.username)
             </div>
           )}
           <div className="hotelWrapper">
-            <button onClick={handleClick} className="bookNow">Reserve or book now</button>
+            <button onClick={handleClick} className="bookNow">
+              Reserve or book now
+            </button>
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <ImLocation2 />
               <span>{data.address}</span>
             </div>
             <span className="hotelDistance">
-              Excellent location - {data.distance } from city center
+              Excellent location - {data.distance} from city center
             </span>
             <span className="hotelPriceHighlight">
-              Book a stay over ${data.cheapestPrice} at this property and get a free airport
-              taxi
+              Book a stay over ${data.cheapestPrice} at this property and get a
+              free airport taxi
             </span>
             <div className="hotelImages">
               {data.photos?.map((photo, i) => (
@@ -131,7 +127,8 @@ console.log(user.username)
                   excellent location score of 9.8!
                 </span>
                 <h2>
-                  <b>${days * data.cheapestPrice * options.room}</b> ({days} nights)
+                  <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
+                  nights)
                 </h2>
                 <button onClick={handleClick}>Reserve or Book Now!</button>
               </div>
@@ -141,9 +138,9 @@ console.log(user.username)
           <Footer />
         </div>
       )}
-      {openModal&& (
-        <Reserve />
-      )}
+      {openModal &&
+       <Reserve setOpenModal={setOpenModal} hotelId={id} />
+       }
     </div>
   );
 };

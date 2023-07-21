@@ -34,7 +34,7 @@ app.use((err, req, res, next)=> {
     successful: false,
     status: errorStatus,
     message: errorMessage,
-    stack: err.stack
+    stack: err.stack,
   })
 })
 
