@@ -3,7 +3,7 @@ import useFetch from "../../components/hooks/useFetch";
 
 const Reserve = ({ setOpenModal, hotelId }) => {
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
-console.log(data)
+  console.log(data)
   return (
     <div className="reserve">
       <div className="rContainer">
@@ -11,17 +11,18 @@ console.log(data)
           X
         </button>
         <span>Select your rooms:</span>
-        {data.map((item) => (
-          <div className="rItem">
-            <div className="rItemInfo">
-              <div className="rTitle">{item.title}</div>
-              <div className="rDesc">{item.desc}</div>
-              <div className="rMax">
-                Max people <b>{item.maxPeople}</b>
+        {data &&
+          data.map((item, i) => (
+            <div className="rItem" key={i} >
+              <div className="rItemInfo">
+                <div className="rTitle">{item.title}</div>
+                <div className="rDesc">{item.desc}</div>
+                <div className="rMax">
+                  Max people <b>{item.maxPeople}</b>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

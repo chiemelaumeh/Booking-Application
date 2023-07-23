@@ -2,7 +2,7 @@ import "./list.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import { format } from "date-fns";
-import { useLocation } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import { useState } from "react";
 import { DateRange, DateRangePicker } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
@@ -10,13 +10,19 @@ import useFetch from "../../components/hooks/useFetch";
 
 const List = () => {
   const location = useLocation();
-  const [destination, setDestination] = useState(location.state.destination);
-  const [dates, setDates] = useState(location.state.dates);
-  const [options, setOptions] = useState(location.state.options);
+  const [destination, setDestination] = useState(location.state.destination || "london");
+  const [dates, setDates] = useState(location.state.dates || [{
+    endDate: new Date(),
+    startDate: new Date(),
+    key: "selection",
+  
+  }]);
+  const [options, setOptions] = useState(location.state.options || {adult: 1, children: 0, room: 1});
   const [openDates, setOpenDate] = useState(false);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
   const { data, loading, error, refetch } = useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max || 9999}`);
+
 
 
   const handleClick = () => {
