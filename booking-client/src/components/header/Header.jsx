@@ -16,6 +16,7 @@ import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
 const Header = ({ type }) => {
+  
   const navigate = useNavigate();
   const { dispatch } = useContext(SearchContext);
   const { user } = useContext(AuthContext);
