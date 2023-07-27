@@ -3,8 +3,10 @@ import useFetch from "../../components/hooks/useFetch";
 import { useContext, useState } from "react";
 import SearchContext from "../../context/SearchContext";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const Reserve = ({ setOpenModal, hotelId }) => {
+  const navigate = useNavigate()
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { dates } = useContext(SearchContext);
@@ -46,6 +48,8 @@ const Reserve = ({ setOpenModal, hotelId }) => {
         const response = axios.put(`/rooms/availability/${roomId}`, {dates: allDates})
         return response.data
       }))
+      setOpenModal(false)
+      navigate("/")
     } catch (error) {
       
     }
