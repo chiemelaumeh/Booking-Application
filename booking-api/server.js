@@ -12,7 +12,7 @@ dotenv.config();
 
 
 
-const PORT = 8000;
+const PORT = process.env.port || 8000;
 import { connectDatabase } from "./db.js";
 
 
@@ -41,33 +41,11 @@ app.use((err, req, res, next)=> {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 mongoose.connection.on("disconnected", ()=> {
   console.log("Mongo disconnected")
 })
 
-app.listen(`${PORT}`, () => {
+app.listen(PORT, () => {
   connectDatabase();
-  console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}...`);
 });
