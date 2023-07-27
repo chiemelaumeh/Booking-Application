@@ -10,7 +10,8 @@ import List from "./pages/list/List";
 import "./global.css"
 import Login from "./pages/login/Login";
 
-axios.defaults.baseURL =  "http://localhost:8000/api";
+
+axios.defaults.baseURL =  "https://booking-api-g9k3.onrender.com/api";
 
 
 
