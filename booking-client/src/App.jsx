@@ -9,9 +9,11 @@ import Hotel from "./pages/hotel/Hotel";
 import List from "./pages/list/List";
 import "./global.css"
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 
 
-axios.defaults.baseURL =  "https://booking-api-g9k3.onrender.com/api";
+// axios.defaults.baseURL =  "https://booking-api-g9k3.onrender.com/api";
+axios.defaults.baseURL =  "http://localhost:8000/api";
 
 
 
@@ -23,6 +25,7 @@ function App () {
         <Route path="/hotels" element={<List/>}/>
         <Route path="/hotels/:id" element={<Hotel/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
       </Routes>
     </Router>
   

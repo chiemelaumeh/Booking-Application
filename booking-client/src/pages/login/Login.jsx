@@ -5,7 +5,7 @@ import axios from "axios";
 import "./login.css";
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -22,12 +22,11 @@ const Login = () => {
     try {
       const response = await axios.post("/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
-      navigate('/')
+      navigate("/");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
     }
   };
-
 
   return (
     <div className="login">
@@ -51,7 +50,12 @@ const Login = () => {
         <button disabled={loading} onClick={handleClick} className="lButton">
           Login
         </button>
-        {error && <span>{error.message}</span>}
+
+        {error && <span className="lError">{error.message}</span>}
+        <div className="lSignup">
+          <span>No Account?</span>
+          <button className="lButton" onClick={()=>{navigate("/register")}}>Sign Up</button>
+        </div>
       </div>
     </div>
   );

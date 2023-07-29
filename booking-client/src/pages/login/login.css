@@ -6,6 +6,8 @@
 }
 
 .lContainer {
+  min-width: none;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -29,4 +31,16 @@
 .lButton:disabled{
   background-color: #0071c28c;
   cursor: not-allowed;
+}
+.lSignup{
+
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.lError{
+  color: red;
+ text-align: center;
 }
