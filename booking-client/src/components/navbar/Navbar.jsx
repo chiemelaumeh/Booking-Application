@@ -1,12 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import { HiOutlineMenu } from "react-icons/hi"
 import axios from "axios"
 
 
 const Navbar = () => {
-
+  const [profileBox, setProfileBox] = useState(false)
 
   const handleClick = async() => {
 
@@ -28,9 +29,11 @@ const Navbar = () => {
 
         {user ? (
           <>
-            <button onClick={handleClick} className="navButton">
+            {/* <button onClick={handleClick} className="navButton">
               Logout
-            </button>
+            </button> */}
+            <HiOutlineMenu onClick={()=> setProfileBox(!profileBox)} className="navIcon"/>
+
           </>
         ) : (
           <div className="navItems">
