@@ -29,7 +29,6 @@ const Register = () => {
       dispatch({ type: "REGISTER_FAILURE", payload: error.response.data });
     }
   };
-
   return (
     <div className="login">
         <AiOutlineCloseCircle onClick={()=>navigate("/")} className="close-icon" />
