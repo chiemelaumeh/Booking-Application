@@ -3,8 +3,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+  position: relative;
 
+
+
+
+}
+.close-icon{
+  height: 4rem;
+  width: 4rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  
+}
 .lContainer {
   min-width: none;
   width: 20vw;
@@ -42,4 +55,10 @@
 .lError{
   color: red;
  text-align: center;
+}
+.lnewUser{
+  color: black;
+ text-align: center;
+ text-transform: lowercase;
+  
 }

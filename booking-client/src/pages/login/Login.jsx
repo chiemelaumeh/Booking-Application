@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineCloseCircle } from "react-icons/ai"
 import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import "./login.css";
@@ -30,6 +31,8 @@ const Login = () => {
 
   return (
     <div className="login">
+      <AiOutlineCloseCircle onClick={()=>navigate("/")} className="close-icon" />
+
       <div className="lContainer">
         <input
           type="text"
