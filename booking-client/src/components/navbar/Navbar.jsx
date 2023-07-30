@@ -3,6 +3,7 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import { HiOutlineMenu } from "react-icons/hi"
+import ProfileBox from "../profileBox/ProfileBox";
 import axios from "axios"
 
 
@@ -26,6 +27,7 @@ const Navbar = () => {
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
           <span className="logo">myBooking</span>
         </Link>
+       
 
         {user ? (
           <>
@@ -33,7 +35,6 @@ const Navbar = () => {
               Logout
             </button> */}
             <HiOutlineMenu onClick={()=> setProfileBox(!profileBox)} className="navIcon"/>
-
           </>
         ) : (
           <div className="navItems">

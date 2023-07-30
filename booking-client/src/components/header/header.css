@@ -6,7 +6,56 @@
   position: relative
   
 }
+.profileBox{
+  width: 10rem;
+  position: absolute;
+  border: 1px solid white;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  padding: 2px 8px;
 
+
+
+ 
+  right: 17rem;
+  
+  top: -33px;
+ 
+  
+
+}
+.border-buttom{
+  border-bottom: 1px solid #013480;
+}
+
+.profileBoxContainer{
+
+
+  width: inherit;
+  height: 8rem;
+  color: #013480;
+  /* background-color: aliceblue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* padding: 12px 0; */
+}
+.profileBoxList{
+  /* border: 1px solid red; */
+  cursor: pointer;
+  padding: 8px 6px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 300;
+
+
+  /* padding-left: 4px; */
+
+}
+.profileIcon {
+  margin-right: 8px;
+}
 .headerContainer {
   width: 100%;
   max-width: 1024px;

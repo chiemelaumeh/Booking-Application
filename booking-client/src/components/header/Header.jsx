@@ -14,6 +14,7 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
+import ProfileBox from "../profileBox/ProfileBox";
 
 const Header = ({ type }) => {
   
@@ -79,6 +80,7 @@ const Header = ({ type }) => {
             <FaTaxi />
             <span>Airport taxis</span>
           </div>
+          <ProfileBox />
         </div>
 
         {type !== "list" && (
