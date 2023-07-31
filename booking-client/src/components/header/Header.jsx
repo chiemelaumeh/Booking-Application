@@ -15,12 +15,13 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import ProfileBox from "../profileBox/ProfileBox";
+import GlobalContext from "../../context/GlobalContext";
 
 const Header = ({ type }) => {
-  
   const navigate = useNavigate();
   const { dispatch } = useContext(SearchContext);
   const { user } = useContext(AuthContext);
+  const { profileBox, setProfileBox } = useContext(GlobalContext);
   const [openDates, setOpenDates] = useState(false);
   const [openOptions, setOpenOptions] = useState(false);
   const [destination, setDestination] = useState("");
@@ -59,6 +60,7 @@ const Header = ({ type }) => {
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
+        
         <div className="headerList">
           <div className="headerListItem active">
             <FaBed />
@@ -70,7 +72,7 @@ const Header = ({ type }) => {
           </div>
           <div className="headerListItem">
             <AiFillCar />
-            <span>Car rentals</span>
+            <span onClick={()=> setProfileBox(!profileBox)}>Car rentals</span>
           </div>
           <div className="headerListItem">
             <FaBed />
@@ -80,7 +82,6 @@ const Header = ({ type }) => {
             <FaTaxi />
             <span>Airport taxis</span>
           </div>
-          <ProfileBox />
         </div>
 
         {type !== "list" && (

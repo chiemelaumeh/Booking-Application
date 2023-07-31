@@ -1,25 +1,43 @@
 import { Link } from "react-router-dom";
-import "../header/header.css";
-import {BsFillBuildingFill} from "react-icons/bs"
+import "./profileBox.css";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
+import { BiLogOut } from "react-icons/bi"
+import { HiOutlineLockClosed } from "react-icons/hi"
+import { PiBuildingsLight } from "react-icons/pi"
+import { AiOutlineUser } from "react-icons/ai"
+import axios from "axios";
+import GlobalContext from "../../context/GlobalContext";
+
+
 
 const ProfileBox = () => {
+  const { setProfileBox } = useContext(GlobalContext)
+  
+  const { dispatch } = useContext(AuthContext);
+  const handleClick = async () => {
+    dispatch({ type: "LOGOUT" });
+    try {
+      await axios.get("/auth/logout");
+    } catch (error) {}
+  };
+
   return (
     <div className="profileBox">
-      <div className="profileBoxContainer">
+      <div onClick={()=> setProfileBox(false)} className="profileBoxContainer">
         <div className="profileBoxList border-buttom">
-        <BsFillBuildingFill className="profileIcon"/> Profile
-        </div>
-        <div className="profileBoxList border-buttom">
-          <BsFillBuildingFill className="profileIcon"/> Password
+          <AiOutlineUser className="profileIcon" /> Profile
         </div>
         <div className="profileBoxList border-buttom">
-          <BsFillBuildingFill className="profileIcon"/>Add a Property
+          <HiOutlineLockClosed className="profileIcon" /> Change Password
         </div>
-        <div className="profileBoxList">
-        <BsFillBuildingFill className="profileIcon"/>  Log out
+        <div className="profileBoxList border-buttom">
+          <PiBuildingsLight className="profileIcon" />
+          Add a Property
         </div>
-
-        
+        <div onClick={handleClick} className="profileBoxList ">
+          <BiLogOut className="profileIcon" /> Log out
+        </div>
       </div>
     </div>
   );
