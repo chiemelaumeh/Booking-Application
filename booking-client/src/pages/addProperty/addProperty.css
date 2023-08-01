@@ -1,0 +1,68 @@
+.addProperty{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.addPropertyContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  height:100vh;
+}
+.addPropertySection{
+
+  width: 80%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+}
+
+.imageSection{
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  align-items: center;
+}
+.imageBox{
+width: 14rem;
+height: 10rem;
+border: 2px solid #013480;
+border-radius: 4px;
+margin-bottom: 0.25rem;
+
+background-size: cover;
+}
+.imageRow{
+display: flex;
+justify-content: space-evenly;
+margin-bottom: 1rem;
+
+
+}
+
+input[type='file'] {
+  color: transparent;
+}
+.rf{
+  margin-left: 10rem;
+}
+.submitButton{
+  width: 25%;
+  color: white;
+  background-color:#013480;
+  outline: none;
+  border: none;
+  padding: 8px;
+  font-size: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.submitContiner{
+  display: flex;
+  justify-content: center;
+}

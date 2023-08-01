@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import "./profileBox.css";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
@@ -11,10 +11,11 @@ import GlobalContext from "../../context/GlobalContext";
 
 
 
+
 const ProfileBox = () => {
+  const navigate = useNavigate()
   const { setProfileBox } = useContext(GlobalContext)
-  
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch, user } = useContext(AuthContext);
   const handleClick = async () => {
     dispatch({ type: "LOGOUT" });
     try {
@@ -31,7 +32,7 @@ const ProfileBox = () => {
         <div className="profileBoxList border-buttom">
           <HiOutlineLockClosed className="profileIcon" /> Change Password
         </div>
-        <div className="profileBoxList border-buttom">
+        <div onClick={()=> navigate("/addProperty", { state: {user}})} className="profileBoxList border-buttom">
           <PiBuildingsLight className="profileIcon" />
           Add a Property
         </div>
