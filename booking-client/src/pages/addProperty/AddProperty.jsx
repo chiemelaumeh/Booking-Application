@@ -219,7 +219,7 @@ const AddProperty = () => {
             onClick={handleClick}
             className="submitButton"
           >
-            Create your property!!!
+            Let's Create
           </button>
         </div>
       </div>
