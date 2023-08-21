@@ -27,11 +27,20 @@ export const verifyUser = (req, res, next) => {
 };
 
 export const verifyAdmin = (req, res, next) => {
-  verifyToken(req, res, next, () => {
-    if (req.user.isAdmin) {
-      next();
-    } else {
-      return next(errorHandler(403, "You are not an Admin"));
-    }
-  });
+  verifyToken(req, res, next);
+  if (req.user.isAdmin) {
+  } else {
+    return next(errorHandler(403, "You are not an Admin"));
+  }
 };
+
+// export const verifyAdmin = (req, res, next) => {
+//   verifyToken(req, res, next, () => {
+//     console.log(req.user)
+//     if (req.user.isAdmin) {
+//       next();
+//     } else {
+//       return next(errorHandler(403, "You are not authorized!"));
+//     }
+//   });
+// };
