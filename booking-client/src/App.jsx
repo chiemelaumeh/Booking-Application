@@ -13,8 +13,8 @@ import Register from "./pages/register/Register";
 import AddProperty from "./pages/addProperty/AddProperty";
 
 
-// axios.defaults.baseURL =  "https://booking-api-g9k3.onrender.com/api";
-axios.defaults.baseURL =  "http://localhost:8000/api";
+axios.defaults.baseURL =  "https://booking-api-g9k3.onrender.com/api";
+// axios.defaults.baseURL =  "http://localhost:8000/api";
 
 
 
