@@ -4,6 +4,8 @@ import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import { BiLogOut } from "react-icons/bi"
 import { HiOutlineLockClosed } from "react-icons/hi"
+import OutsideClickHandler from "react-outside-click-handler";
+
 import { PiBuildingsLight } from "react-icons/pi"
 import { AiOutlineUser } from "react-icons/ai"
 import axios from "axios";
@@ -16,6 +18,7 @@ const ProfileBox = () => {
   const navigate = useNavigate()
   const { setProfileBox } = useContext(GlobalContext)
   const { dispatch, user } = useContext(AuthContext);
+
   const handleClick = async () => {
     dispatch({ type: "LOGOUT" });
     try {
@@ -25,7 +28,9 @@ const ProfileBox = () => {
 
   return (
     <div className="profileBox">
-      <div onClick={()=> setProfileBox(false)} className="profileBoxContainer">
+
+      <div  className="profileBoxContainer"  onClick={()=>setProfileBox(false)}>
+      <OutsideClickHandler onOutsideClick={() => {setProfileBox(false)}}>
         <div className="profileBoxList border-buttom">
           <AiOutlineUser className="profileIcon" /> Profile
         </div>
@@ -39,6 +44,7 @@ const ProfileBox = () => {
         <div onClick={handleClick} className="profileBoxList ">
           <BiLogOut className="profileIcon" /> Log out
         </div>
+      </OutsideClickHandler>
       </div>
     </div>
   );

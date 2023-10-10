@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import "./addProperty.css";
 import axios from "axios";
+
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import upload from "../../assets/upload.png";
 import AddPropertyContext from "../../context/AddPropertyContext";
 
@@ -18,8 +20,8 @@ const AddProperty = () => {
     distance: "",
     cheapestPrice: "",
   });
+   const navigate = useNavigate();
   const [emptyField, setEmptyField] = useState(Object.keys(propertyFields));
-
   const handleChange = (e) => {
     setPropertyFields((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
@@ -48,8 +50,9 @@ const AddProperty = () => {
   };
 
   return (
-    <>
+    <>    
       <div className="addProperty">
+      <AiOutlineCloseCircle onClick={()=>navigate("/")} className="close-icon" />
         <div className="addPropertyText">
           <div className="title-address">
             <div className="spanDiv">
@@ -57,7 +60,7 @@ const AddProperty = () => {
                 Property Name
                 {!emptyField[0] && (
                   <span className="emptyField"> Input required</span>
-                )}
+                  )}
               </span>
 
               <input
@@ -73,7 +76,7 @@ const AddProperty = () => {
                 Property Address{" "}
                 {!emptyField[1] && (
                   <span className="emptyField"> Input required</span>
-                )}
+                  )}
               </span>
               <input
                 type="text"
