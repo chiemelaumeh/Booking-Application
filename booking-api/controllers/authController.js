@@ -35,9 +35,13 @@ export const login = async(req, res, next) => {
    const token = jwt.sign({ id:user._id, isAdmin: user.isAdmin }, process.env.SECRET_KEY)
 
    const { password, isAdmin, ...otherDetails} = user._doc
-    res.cookie("access_token", token, {
-    httpOnly: true
-    }).status(201).json({...otherDetails})
+    res.status(200).cookie("access_token", token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: true,
+
+
+    }).json({...otherDetails})
   } catch (err) {
     next(err)
   }
@@ -47,13 +51,6 @@ export const login = async(req, res, next) => {
 
 export const logout = (req, res) => {
 
-// res.clearCookie("access_token")
-
 res.status(200).clearCookie('access_token', {
-  // path: '/',
-  secure: true,
-  httpOnly: true,
-  sameSite: true,
-});
-res.status(200).send("logged out")
+}).send("logged out")
 }
