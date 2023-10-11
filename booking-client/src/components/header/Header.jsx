@@ -71,16 +71,13 @@ const Header = ({ type }) => {
           </div>
           <div className="headerListItem">
             <AiFillCar />
-            <span onClick={()=> setProfileBox(!profileBox)}>Car rentals</span>
+            <span onClick={()=> setProfileBox(!profileBox)}>Rentals</span>
           </div>
           <div className="headerListItem">
             <FaBed />
             <span>Attractions</span>
           </div>
-          <div className="headerListItem">
-            <FaTaxi />
-            <span>Airport taxis</span>
-          </div>
+          
         </div>
 
         {type !== "list" && (
@@ -104,7 +101,7 @@ const Header = ({ type }) => {
                   onChange={(e) => setDestination(e.target.value)}
                 />
               </div>
-              <div className="headerSearchItem">
+              <div className="headerSearchItem" >
                 <SlCalender className="headerIcon" />
                 <span
                   onClick={() => setOpenDates(!openDates)}
@@ -124,7 +121,7 @@ const Header = ({ type }) => {
                   />
                 )}
               </div>
-              <div className="headerSearchItem">
+              <div className="headerSearchItem" >
                 <PiPersonFill className="headerIcon" />
                 <span
                   onClick={() => setOpenOptions(!openOptions)}
@@ -197,7 +194,7 @@ const Header = ({ type }) => {
                 )}
               </div>
               <div className="headerSearchItem">
-                <button className="headerBtn" onClick={handleSearch}>
+                <button className="headerBtnLow" onClick={handleSearch}>
                   Search
                 </button>
               </div>

@@ -31,3 +31,60 @@
   cursor: pointer;
   min-height: 4rem;
 }
+
+@media screen and (min-width: 320px) {
+  .navbar{
+    height: 50px;
+    background-color:var(--booking_blue) ;
+    display: flex;
+    justify-content: center;
+  
+  }
+  .navContainer{
+    width: 90%;
+    color: white;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+  }
+  .navButton{
+    margin-left: 20px; 
+    border: none;
+    padding: 10px 12.5px;
+    cursor: pointer;
+    color: var(--booking_blue);
+    border-radius: 4px;
+   
+   
+   }
+}
+@media screen and (min-width: 700px) {
+  .navbar{
+    height:80px;
+    background-color:var(--booking_blue) ;
+    display: flex;
+    justify-content: center;
+  
+  }
+  .navContainer{
+    width: 90%;
+    color: white;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+  }
+  .navButton{
+    margin-left: 30px; 
+    border: none;
+    padding: 15px 12.5px;
+    cursor: pointer;
+    color: var(--booking_blue);
+    border-radius: 4px;
+   
+   
+   }
+   .logo{
+    font-weight: 500;
+    font-size: 24px;
+  }
+}
