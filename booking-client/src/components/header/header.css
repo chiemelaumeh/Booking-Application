@@ -20,6 +20,359 @@
   display: flex;
   gap: 50px;
  margin-bottom: 50px;
+
+}
+
+.headerListItem{
+  display: flex; 
+  align-items: center; 
+   gap: 10px; 
+  /* color: red; */
+  font-size: 25px;
+}
+
+.headerListItem.active{
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.headerDesc{
+margin: 20px 0;
+}
+
+.headerBtn{
+  background-color: var(--booking_light_blue);
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+.headerSearch{
+  height:30px;
+  background-color: white;
+  border: 3px solid #febb02;
+  display: flex;
+  color: black;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -25px;
+  width: 100%;
+  max-width: 1024px;
+
+}
+
+.headerIcon{
+color: lightgray;
+
+}
+.headerSearchItem{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerSearchInput{
+  border: none;
+  outline: none;
+}
+.headerSearchText{
+  color: lightgrey;
+}
+.date{
+  position: absolute;
+  top: 50px;
+  z-index: 2;
+}
+.options{
+  z-index: 2;
+  position: absolute;
+  top:50px;
+  background-color: white;
+  color: grey;
+  border-radius: 5px;
+}
+
+.optionItem{
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+
+}.optionCounter{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: black;
+}
+
+.optionCounterButton{
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--booking_light_blue);
+  color: var(--booking_light_blue);
+  cursor: pointer;
+  background-color: white;
+}
+.optionCounterButton:disabled{
+  cursor: not-allowed;
+}
+
+
+@media screen and (min-width: 320px){
+  .header {
+    background-color: var(--booking_blue);
+    display: flex;
+    color: white;
+    justify-content: center;
+    position: relative
+    
+  }
+  
+  .headerContainer {
+    width: 100%;
+    max-width: 1024px;
+    margin: 20px 0px 30px 0px;
+    
+  }
+  .headerContainer.listMode{
+    margin: 20px 0px 0px 0px;
+  }
+  .headerList{
+    font-size: 14px;
+    display: flex;
+    gap: 2px;
+    justify-content: space-around;
+   margin-bottom: 20px;
+  }
+  
+  .headerListItem{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+  }
+  
+  .headerListItem.active{
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  
+  .headerTitle {
+    font-size: 24px;
+    /* text-align: center; */
+    margin-left: .5rem;
+    
+  }
+  .headerDesc{
+  margin: 20px 0;
+  font-size: 14px;
+  margin-left: 0.5rem;
+  }
+  
+  .headerBtn{
+    background-color: var(--booking_light_blue);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: .5rem;
+    margin-bottom: 1rem;
+
+  
+  }
+  .headerBtnLow{
+    background-color: var(--booking_light_blue);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+
+
+  
+  }
+
+.headerSearch{
+  height:30px;
+  background-color: white;
+  border: 3px solid #febb02;
+  display: flex;
+  color: black;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: -25px;
+  width: 100%;
+  max-width: 1024px;
+
+}
+
+.headerIcon{
+color: lightgray;
+}
+.headerSearchItem{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerSearchInput{
+  border: none;
+  outline: none;
+}
+.headerSearchText{
+  color: lightgrey;
+  font-size:12px;
+  /* display: none; */
+}
+.date{
+  position: absolute;
+  top: 50px;
+  z-index: 2;
+  margin-right: 2rem;
+}
+.options{
+  z-index: 2;
+  position: absolute;
+  top:50px;
+  background-color: white;
+  color: grey;
+  border-radius: 5px;
+}
+
+.optionItem{
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+
+}.optionCounter{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: black;
+}
+
+.optionCounterButton{
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--booking_light_blue);
+  color: var(--booking_light_blue);
+  cursor: pointer;
+  background-color: white;
+}
+.optionCounterButton:disabled{
+  cursor: not-allowed;
+}
+
+  
+  
+}
+
+
+@media screen and (min-width: 700px){
+  .header {
+    background-color: var(--booking_blue);
+    display: flex;
+    color: white;
+    justify-content: center;
+    position: relative
+    
+  }
+  
+  .headerContainer {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0px 0px 20px 0px;
+    
+  }
+  .headerContainer.listMode{
+    margin: 20px 0px 0px 0px;
+  }
+  .headerList{
+
+    display: flex;
+    gap: 5px;
+    justify-content: space-around;
+   margin-bottom: 40px;
+  }
+  
+  .headerListItem{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* font-size: 24px; */
+  }
+  .headerListItem.active{
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  
+  .headerDesc{
+  margin: 30px 0;
+  margin-left: .5rem;
+  }
+  .headerTitle {
+    margin-left: .5rem;
+  }
+  
+  .headerBtn{
+    background-color: var(--booking_light_blue);
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    /* margin-bottom: 2rem; */
+  
+  }
+  .headerSearchText{
+    color: lightgrey;
+    font-size:3px;
+    display: block;
+
+  }
+}
+/* @media screen and (min-width: 1024px){
+.header {
+  background-color: var(--booking_blue);
+  display: flex;
+  color: white;
+  justify-content: center;
+  position: relative
+  
+}
+
+.headerContainer {
+  width: 100%;
+  max-width: 1024px;
+  margin: 20px 0px 100px 0px;
+  
+}
+.headerContainer.listMode{
+  margin: 20px 0px 0px 0px;
+}
+.headerList{
+  display: flex;
+  gap: 50px;
+ margin-bottom: 50px;
 }
 
 .headerListItem{
@@ -120,3 +473,4 @@ color: lightgray;
 .optionCounterButton:disabled{
   cursor: not-allowed;
 }
+} */
