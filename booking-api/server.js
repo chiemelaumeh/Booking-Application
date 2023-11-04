@@ -40,7 +40,7 @@ app.use((err, req, res, next)=> {
 
 
 app.get("/", (req, res) => {
-  res.send('<h1> Booking API is running s it should. Goto <a href="https://chiemela-booking-application.netlify.app/">Booking web App</a></h1>\n');
+  res.send('<h1> Booking API is running as it should. Goto <a href="https://chiemela-booking-application.netlify.app/">Booking web App</a></h1>\n');
 });
 
 mongoose.connection.on("disconnected", ()=> {
